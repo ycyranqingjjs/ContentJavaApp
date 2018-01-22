@@ -1,0 +1,11 @@
+0|×óÓÒ»¬¶¯£¬ÇĞ»»ÂË¾µ|1|null
+1|ÃÀÑÕ|1|@beautify face 1 720 1280
+2|ºÚÓë°×|1|@vigblend colorbw 0 0 0 255 100 0 0 0.5 0.5 2
+3|Âü¹ş¶Ù|1|@vigblend colorbw 0 0 0 255 100 0 0 0.5 0.5 2 @adjust brightness 0.17 @vigblend color 193 141 251 255 20 0.01 0 0.5 0.5 3
+4|Î¨ÃÀ|1|@adjust saturation 0.7 @pixblend screen 1 0.243 0.69 1 30
+5|¿á|1|@vigblend mix 10 10 30 255 91 0 1.0 0.5 0.5 3 @curve R(0, 31)(35, 75)(81, 139)(109, 174)(148, 207)(255, 255)G(0, 24)(59, 88)(105, 146)(130, 171)(145, 187)(180, 214)(255, 255)B(0, 96)(63, 130)(103, 157)(169, 194)(255, 255)
+6|°×ÈÕÃÎÀ¶|1|@adjust contrast 1.12 @adjust brightness 0.09 @vigblend multiply 111 142 255 255 20 0.06 0.62 0.5 0.5 3 
+7|êÓÃÁ|1|@pixblend multiply 141 245 251 100 100 @adjust brightness 0.13 
+8|µ­Ë®|1|@pixblend multiply 141 245 251 100 100 @adjust brightness 0.13 @curve G(0, 0)(135, 162)(255, 255)RGB(0, 0)(111, 129)(255, 255) 
+9|Âş²½ÇàÌï|1|@pixblend softlight 121 121 121 255 20 @adjust hsv 0 1 -1 1 -1 1 
+10|ÎçºóÊé·¿|1|@pixblend softlight 121 121 121 255 20 @pixblend lineardodge 190 62 249 100 80 @style haze 0.115 -0.225 1 1 1

@@ -1,0 +1,100 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion Integer.parseInt(COMPLIE_SDK)
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(MIN_SDK)
+        targetSdkVersion Integer.parseInt(TARGET_SDK)
+        versionCode Integer.parseInt(APP_VERSION_CODE)
+        versionName APP_VERSION_NAME
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {  //arouter
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+        //拆分包开关
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.android.support:design:27.0.2'
+
+    //拆分dex
+    compile 'com.android.support:multidex:1.0.2'
+
+    // 调试工具  Chrome浏览器调试工具
+    compile 'com.facebook.stetho:stetho:1.5.0'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    //内存泄露
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
+    // 卡顿分析
+    debugCompile 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseCompile 'com.github.markzhai:blockcanary-no-op:1.5.0'
+
+//    //轮播控件
+//    compile 'com.youth.banner:banner:1.4.10'        //已经参考
+    //圆形图片
+//    compile 'de.hdodenhof:circleimageview:2.2.0'    //已经参考
+    //SuperTextView
+//    compile 'com.github.chenBingX:SuperTextView:v1.3'     //已经参考
+    //BaseRecyclerViewAdapterHelper
+//    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'   //已经参考
+    //log工具
+//    compile 'com.orhanobut:logger:1.15'    //已经参考
+    //log 信息存储
+//    compile 'com.jakewharton.timber:timber:4.3.1'  //已经参考
+    //配合timber
+//    compile 'org.slf4j:slf4j-api:1.7.21'          //参考
+//    compile 'com.github.tony19:logback-android-core:1.1.1-6'
+//    compile 'com.github.tony19:logback-android-classic:1.1.1-6'
+
+
+
+    //    //对Android的支持缩放图片的实现，通过各种触摸手势。
+//    implementation 'com.github.chrisbanes:PhotoView:latest.release.here'   //参考
+
+    //获取照片（拍照或从相册、文件中选择）、裁剪图片、压缩图片
+//    compile 'com.jph.takephoto:takephoto_library:4.0.3'//参考  注意产生异常
+
+    //底部  弹出菜单
+//    compile 'com.nightonke:boommenu:2.1.1'//参考
+
+    //material-dialogs
+
+    //        compile 'com.afollestad.material-dialogs:commons:0.9.6.0'
+
+    // dialogplus
+
+//            compile 'com.orhanobut:dialogplus:1.11@aar'
+
+
+//    compile 'com.github.vondear:RxTools:v1.7.6'//参考
+
+
+    // router  路由（组件化）  不用就注释掉
+    compile "com.alibaba:arouter-api:$rootProject.arouterVersion"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
+}
