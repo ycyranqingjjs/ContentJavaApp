@@ -101,7 +101,9 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
         }, mRootView.getRxPermissions(), mErrorHandler);
 
 
-        if (pullToRefresh) lastUserId = 1;//下拉刷新默认只请求第一页
+        if (pullToRefresh) {
+            lastUserId = 1;//下拉刷新默认只请求第一页
+        }
 
         //关于RxCache缓存库的使用请参考 http://www.jianshu.com/p/b58ef6b0624b
 

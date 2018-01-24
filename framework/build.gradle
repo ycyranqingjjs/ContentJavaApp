@@ -38,23 +38,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.android.support:design:27.0.2'
 
-    //拆分dex
-    compile 'com.android.support:multidex:1.0.2'
 
-    // 调试工具  Chrome浏览器调试工具
-    compile 'com.facebook.stetho:stetho:1.5.0'
-    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
-
-    //内存泄露
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-
-    // 卡顿分析
-    debugCompile 'com.github.markzhai:blockcanary-android:1.5.0'
-    releaseCompile 'com.github.markzhai:blockcanary-no-op:1.5.0'
-
-//    //轮播控件
+    //    //轮播控件
 //    compile 'com.youth.banner:banner:1.4.10'        //已经参考
     //圆形图片
 //    compile 'de.hdodenhof:circleimageview:2.2.0'    //已经参考
@@ -70,7 +55,8 @@ dependencies {
 //    compile 'org.slf4j:slf4j-api:1.7.21'          //参考
 //    compile 'com.github.tony19:logback-android-core:1.1.1-6'
 //    compile 'com.github.tony19:logback-android-classic:1.1.1-6'
-
+    //  第三方TableLyout
+//    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar' //已经参考
 
 
     //    //对Android的支持缩放图片的实现，通过各种触摸手势。
@@ -93,8 +79,23 @@ dependencies {
 
 //    compile 'com.github.vondear:RxTools:v1.7.6'//参考
 
+    //拆分dex
+    api 'com.android.support:multidex:1.0.2'
+
+    // 调试工具  Chrome浏览器调试工具
+    api 'com.facebook.stetho:stetho:1.5.0'
+    api 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    //内存泄露
+    debugApi(rootProject.ext.dependencies["canary-debug"])
+    releaseApi(rootProject.ext.dependencies["canary-release"])
+    testApi(rootProject.ext.dependencies["canary-release"])
+
+    // 卡顿分析
+    debugApi(rootProject.ext.dependencies["blockcanary-debug"])
+    releaseApi(rootProject.ext.dependencies["blockcanary-release"])
 
     // router  路由（组件化）  不用就注释掉
-    compile "com.alibaba:arouter-api:$rootProject.arouterVersion"
+    api "com.alibaba:arouter-api:$rootProject.arouterVersion"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
 }

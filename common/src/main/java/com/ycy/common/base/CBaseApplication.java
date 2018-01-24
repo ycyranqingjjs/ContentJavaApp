@@ -18,6 +18,7 @@ package com.ycy.common.base;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.tencent.bugly.crashreport.CrashReport;
 import com.ycy.common.base.delegate.AppDelegate;
 import com.ycy.common.base.delegate.AppLifecycles;
 import com.ycy.common.di.component.AppComponent;
@@ -46,16 +47,19 @@ public class CBaseApplication extends FBaseApplication implements App {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        if (mAppDelegate == null)
+        if (mAppDelegate == null) {
             this.mAppDelegate = new AppDelegate(base);
+        }
         this.mAppDelegate.attachBaseContext(base);
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if (mAppDelegate != null)
+        if (mAppDelegate != null) {
             this.mAppDelegate.onCreate(this);
+        }
+        CrashReport.initCrashReport(getApplicationContext(), "d2dcad7abd", false); //第三个参数为SDK调试模式开关在测试阶段建议设置成true，发布时设置为false
     }
 
     /**
@@ -64,8 +68,9 @@ public class CBaseApplication extends FBaseApplication implements App {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        if (mAppDelegate != null)
+        if (mAppDelegate != null) {
             this.mAppDelegate.onTerminate(this);
+        }
     }
 
     /**

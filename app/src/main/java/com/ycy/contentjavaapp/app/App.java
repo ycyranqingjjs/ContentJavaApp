@@ -1,6 +1,7 @@
 package com.ycy.contentjavaapp.app;
 
-import com.ycy.common.CBaseAppliction;
+
+import com.ycy.common.base.CBaseApplication;
 
 /**
  * --------------------------------------------------
@@ -12,7 +13,7 @@ import com.ycy.common.CBaseAppliction;
  * --------------------------------------------------
  */
 
-public class App extends CBaseAppliction {
+public class App extends CBaseApplication {
 
     public static App mInstance;
 

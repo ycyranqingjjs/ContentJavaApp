@@ -1,0 +1,182 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion Integer.parseInt(COMPLIE_SDK)
+    useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(MIN_SDK)
+        targetSdkVersion Integer.parseInt(TARGET_SDK)
+        versionCode Integer.parseInt(APP_VERSION_CODE)
+        versionName APP_VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi','x86', 'armeabi-v7a','x86_64', 'arm64-v8a'
+        }
+
+        //拆分包开关
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'   //混淆文件
+        }
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+
+    //    api(rootProject.ext.dependencies["rxpermissions2"]) { //已参考
+//        exclude module: 'rxjava'
+//        exclude module: 'support-annotations'
+//    }
+//    api rootProject.ext.dependencies['rxerrorhandler2']  //已参考
+    //搜索控件
+//    compile 'com.miguelcatalan:materialsearchview:1.4.0'//已经参考
+
+    //RxPermissons 权限管理
+//    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'   //已经参考
+
+    //屏幕适配
+//    compile 'com.zhy:autolayout:1.4.5' //已经参考
+
+    //rxerrorhandler
+//    compile 'me.jessyan:rxerrorhandler:2.1.0' //rxjava2//已经参考
+
+
+
+
+
+//support
+    api(rootProject.ext.dependencies["support-v4"]) {
+        exclude module: 'support-annotations'
+    }
+    api(rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+    }
+    api(rootProject.ext.dependencies["design"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
+    api rootProject.ext.dependencies["annotations"]
+
+
+
+
+    //view
+//    api(rootProject.ext.dependencies["autolayout"]) {   //已参考
+//        exclude group: 'com.android.support'
+//    }
+
+    api(rootProject.ext.dependencies["butterknife"]) {
+        exclude module: 'support-annotations'
+    }
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
+    //rx
+    api rootProject.ext.dependencies["rxjava2"]
+    api(rootProject.ext.dependencies["rxandroid2"]) {
+        exclude module: 'rxjava'
+    }
+    api(rootProject.ext.dependencies["rxcache2"]) {
+        exclude module: 'rxjava'
+        exclude module: 'dagger'
+    }
+    implementation(rootProject.ext.dependencies["rxcache-jolyglot-gson"]) {
+        exclude module: 'gson'
+    }
+    api(rootProject.ext.dependencies["rxlifecycle2"]) {
+        exclude module: 'rxjava'
+        exclude module: 'jsr305'
+    }
+    api(rootProject.ext.dependencies["rxlifecycle2-android"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'rxjava'
+        exclude module: 'rxandroid'
+        exclude module: 'rxlifecycle'
+    }
+
+
+    //network
+    api(rootProject.ext.dependencies["retrofit"]) {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
+    implementation(rootProject.ext.dependencies["retrofit-converter-gson"]) {
+        exclude module: 'gson'
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'retrofit'
+    }
+    implementation(rootProject.ext.dependencies["retrofit-adapter-rxjava2"]) {
+        exclude module: 'rxjava'
+        exclude module: 'okhttp'
+        exclude module: 'retrofit'
+        exclude module: 'okio'
+    }
+    api rootProject.ext.dependencies["okhttp3"]
+    api(rootProject.ext.dependencies["glide"]) {
+        exclude module: 'support-v4'
+    }
+    annotationProcessor(rootProject.ext.dependencies["glide-compiler"]) {
+        exclude module: 'jsr305'
+    }
+
+
+    //tools
+    compileOnly rootProject.ext.dependencies["javax.annotation"]
+    api rootProject.ext.dependencies["dagger2"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    api rootProject.ext.dependencies["androideventbus"]
+    api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["zxing"]
+    api rootProject.ext.dependencies["zxing-android"]
+    //二维码
+//    api 'com.google.zxing:core:3.2.1'      //zxing核心依赖
+//    api 'com.journeyapps:zxing-android-embedded:3.3.0'  //生成二维码依赖
+    api rootProject.ext.dependencies["bugly"]
+    api rootProject.ext.dependencies["bugly-native"]
+    //Bug分析    其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+//    api 'com.tencent.bugly:crashreport:latest.release'
+//    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+//    api 'com.tencent.bugly:nativecrashreport:latest.release'
+
+    //test
+    api rootProject.ext.dependencies["timber"]
+    testApi rootProject.ext.dependencies["junit"]
+
+
+
+    //    ---------------------------------
+
+
+
+
+    //  materialviewpager
+
+    //        compile 'com.github.florent37:materialviewpager:1.2.3'
+
+    //        //dependencies
+
+    //        compile 'com.flaviofaria:kenburnsview:1.0.7'
+
+    //        compile 'com.jpardogo.materialtabstrip:library:1.1.0'
+
+    //        compile 'com.github.bumptech.glide:glide:4.0.0'
+
+    implementation project(':framework')
+}

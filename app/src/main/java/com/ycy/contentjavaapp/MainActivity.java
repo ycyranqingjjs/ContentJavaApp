@@ -14,12 +14,12 @@ public class MainActivity extends CBaseActivity {
 
     @BindView(R.id.sample_text)
     TextView mTextView;
+//    private TextView mTv;
+
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }
-
-    private TextView mTv;
 
 
     @Override
@@ -29,13 +29,13 @@ public class MainActivity extends CBaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mTv = (TextView) findViewById(R.id.sample_text);
+//        mTv = (TextView) findViewById(R.id.sample_text);
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
 
-        mTextView.setText("fsjofijasoi");
+        mTextView.setText(stringFromJNI());
 //        mTv.setText(stringFromJNI());
     }
 

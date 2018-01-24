@@ -24,7 +24,6 @@ import com.ycy.common.base.delegate.AppLifecycles;
 import com.ycy.common.utils.ArmsUtils;
 import com.ycy.contentjavaapp.BuildConfig;
 
-import butterknife.ButterKnife;
 import timber.log.Timber;
 
 /**
@@ -63,7 +62,6 @@ public class AppLifecyclesImpl implements AppLifecycles {
 //                            Logger.log(priority, tag, message, t);
 //                        }
 //                    });
-            ButterKnife.setDebug(true);
         }
         //leakCanary内存泄露检查
         ArmsUtils.obtainAppComponentFromContext(application).extras().put(RefWatcher.class.getName(), BuildConfig.USE_CANARY ? LeakCanary.install(application) : RefWatcher.DISABLED);

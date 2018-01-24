@@ -9,4 +9,6 @@ import com.ycy.framework.BuildConfig;
 
 public class FrameworkConfig {
     public static final boolean DEBUG = BuildConfig.DEBUG;
+//    public static boolean LOGIN = BuildConfig.LOGIN;
+    public static boolean LOGIN = true;
 }

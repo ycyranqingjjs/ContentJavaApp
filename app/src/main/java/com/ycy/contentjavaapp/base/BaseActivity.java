@@ -1,9 +1,9 @@
 package com.ycy.contentjavaapp.base;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import com.ycy.common.base.CBaseActivity;
-import com.ycy.common.di.component.AppComponent;
 
 /**
  * --------------------------------------------------
@@ -15,30 +15,11 @@ import com.ycy.common.di.component.AppComponent;
  * --------------------------------------------------
  */
 
-public class BaseActivity extends CBaseActivity {
+public abstract class BaseActivity extends CBaseActivity {
 
     @Override
-    public void setupActivityComponent(AppComponent appComponent) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    }
-
-    @Override
-    public void initView(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    public void initData(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    public void initToolBar() {
-
-    }
-
-    @Override
-    public int getLayoutId(Bundle savedInstanceState) {
-        return 0;
     }
 }

@@ -91,7 +91,9 @@ public class BasePresenter<M extends IModel, V extends IView> implements IPresen
             }
         }
         if (useEventBus())//如果要使用 Eventbus 请将此方法返回 true
+        {
             EventBus.getDefault().register(this);//注册 Eventbus
+        }
     }
 
     /**
