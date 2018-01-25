@@ -21,7 +21,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-import com.ycy.framework.FBaseApplication;
+import com.ycy.framework.base.FBaseApplication;
 import com.ycy.framework.config.FrameworkConfig;
 
 import java.io.BufferedInputStream;

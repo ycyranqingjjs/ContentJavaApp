@@ -23,7 +23,7 @@ import com.ycy.common.base.delegate.AppDelegate;
 import com.ycy.common.base.delegate.AppLifecycles;
 import com.ycy.common.di.component.AppComponent;
 import com.ycy.common.utils.Preconditions;
-import com.ycy.framework.FBaseApplication;
+import com.ycy.framework.base.FBaseApplication;
 
 /**
  * ================================================

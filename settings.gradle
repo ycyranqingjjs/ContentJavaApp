@@ -1,1 +1,1 @@
-include ':app', ':common', ':framework', ':framework'
+include ':app', ':common', ':framework', ':framework', ':RxTools-library'

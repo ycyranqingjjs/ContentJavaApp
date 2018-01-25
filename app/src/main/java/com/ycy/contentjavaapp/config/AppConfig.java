@@ -7,7 +7,7 @@ import android.provider.Settings;
 
 import com.facebook.stetho.common.LogUtil;
 import com.ycy.common.BuildConfig;
-import com.ycy.framework.FBaseApplication;
+import com.ycy.framework.base.FBaseApplication;
 import com.ycy.framework.utils.Utils;
 
 

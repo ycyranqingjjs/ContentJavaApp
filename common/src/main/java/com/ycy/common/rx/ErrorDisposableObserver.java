@@ -3,7 +3,7 @@ package com.ycy.common.rx;
 import android.widget.Toast;
 
 import com.ycy.common.network.NoNetWorkException;
-import com.ycy.framework.FBaseApplication;
+import com.ycy.framework.base.FBaseApplication;
 
 import io.reactivex.observers.DisposableObserver;
 

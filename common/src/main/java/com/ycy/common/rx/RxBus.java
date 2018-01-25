@@ -1,4 +1,4 @@
-package com.ycy.common.rx.rxbus;
+package com.ycy.common.rx;
 
 import io.reactivex.Flowable;
 import io.reactivex.processors.FlowableProcessor;

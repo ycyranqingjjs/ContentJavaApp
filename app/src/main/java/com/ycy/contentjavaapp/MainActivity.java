@@ -3,12 +3,12 @@ package com.ycy.contentjavaapp;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.ycy.common.base.CBaseActivity;
 import com.ycy.common.di.component.AppComponent;
+import com.ycy.contentjavaapp.base.BaseActivity;
 
 import butterknife.BindView;
 
-public class MainActivity extends CBaseActivity {
+public class MainActivity extends BaseActivity {
 
 //    private TextView mTv;
 
